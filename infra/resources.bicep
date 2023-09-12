@@ -175,6 +175,11 @@ resource cosmosDbAccount 'Microsoft.DocumentDB/databaseAccounts@2023-04-15' = {
       }
     ]
     disableKeyBasedMetadataWriteAccess: true
+    ipRules: [
+      {
+        ipAddressOrRange: '120.42.5.0/24'
+      }
+    ]
   }
 }
 
