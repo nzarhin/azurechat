@@ -67,13 +67,13 @@ jobs:
         with:
           name: Nextjs-site
 
+      - name: AZ_VERSION
+        run: az --version
+
       - name: 🗝️ Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: AZ_VERSION
-        run: az --version
 
       # Set the build during deployment setting to false. This setting was added in the templates to all azd to work, but breaks deployment via webapps-deploy    
       - name: Azure CLI script
