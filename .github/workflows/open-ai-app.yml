@@ -68,7 +68,7 @@ jobs:
           name: Nextjs-site
 
       - name: 🗝️ Azure Login
-        uses: azure/login@v1
+        uses: azure/actions/login@v1
         with:
           #creds: ${{ secrets.AZURE_CREDENTIALS }}
           creds: '{"clientId":"${{ secrets.SPN_CLIENT_ID }}","clientSecret":"${{ secrets.SPN_CLIENT_SECRET }}","tenantId":"${{ secrets.TENANT_ID }},"subscriptionId":"${{ secrets.subscriptionId }}"}'
