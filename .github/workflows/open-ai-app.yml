@@ -76,6 +76,8 @@ jobs:
           #creds: ${{ secrets.AZURE_CREDENTIALS }}
           creds: '{"clientId":"${{ secrets.SPN_CLIENT_ID }}","clientSecret":"${{ secrets.SPN_CLIENT_SECRET }}","tenantId":"${{ secrets.TENANT_ID }},"subscriptionId":"${{ secrets.subscriptionId }}"}'
           allow-no-subscriptions: true
+        env:
+          HTTPS_PROXY: 'http://proxy-dmz.intel.com:912'  
 
       # Set the build during deployment setting to false. This setting was added in the templates to all azd to work, but breaks deployment via webapps-deploy    
       - name: Azure CLI script
