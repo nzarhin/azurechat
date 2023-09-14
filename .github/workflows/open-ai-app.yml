@@ -67,9 +67,6 @@ jobs:
         with:
           name: Nextjs-site
 
-      - name: proxy
-        run: export https_proxy=http://proxy-dmz.intel.com:912
-
       - name: 🗝️ Azure Login
         uses: azure/login@v1
         with:
