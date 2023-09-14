@@ -75,16 +75,19 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            rg=$(az webapp list --query "[?name=='${{ secrets.AZURE_APP_SERVICE_NAME }}'].resourceGroup" --output tsv)
-            az webapp config appsettings set -n ${{ secrets.AZURE_APP_SERVICE_NAME }} -g $rg --settings SCM_DO_BUILD_DURING_DEPLOYMENT=false
-            az webapp config set --startup-file="node server.js" -n ${{ secrets.AZURE_APP_SERVICE_NAME }} -g $rg
+            //rg=$(az webapp list --query "[?name=='${{ secrets.AZURE_APP_SERVICE_NAME }}'].resourceGroup" --output tsv)
+            //az webapp config appsettings set -n ${{ secrets.AZURE_APP_SERVICE_NAME }} -g $rg --settings SCM_DO_BUILD_DURING_DEPLOYMENT=false
+            //az webapp config set --startup-file="node server.js" -n ${{ secrets.AZURE_APP_SERVICE_NAME }} -g $rg
+
+            az webapp config appsettings set -n laaschat01-webapp-t7o526wafhir4 -g webapps --settings SCM_DO_BUILD_DURING_DEPLOYMENT=false
+            az webapp config set --startup-file="node server.js" -n laaschat01-webapp-t7o526wafhir4 -g webapps
             sleep 10
 
       - name: 🚀 Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ secrets.AZURE_APP_SERVICE_NAME }}
+          app-name: laaschat01-webapp-t7o526wafhir4
           package: ${{ github.workspace }}/Nextjs-site.zip
 
       - name: 🧹 Cleanup
