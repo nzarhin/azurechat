@@ -75,8 +75,8 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az webapp config appsettings set -n laaschat01-webapp-t7o526wafhir4 -g webapps --settings SCM_DO_BUILD_DURING_DEPLOYMENT=false
-            az webapp config set --startup-file="node server.js" -n laaschat01-webapp-t7o526wafhir4 -g webapps
+            az webapp config appsettings set -n laaschat01-webapp-t7o526wafhir4 -g webapps --settings SCM_DO_BUILD_DURING_DEPLOYMENT=false --subscription LaaS_Essence
+            az webapp config set --startup-file="node server.js" -n laaschat01-webapp-t7o526wafhir4 -g webapps --subscription LaaS_Essence
             sleep 10
 
       - name: 🚀 Deploy to Azure Web App
