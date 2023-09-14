@@ -67,6 +67,9 @@ jobs:
         with:
           name: Nextjs-site
 
+      - name: login
+        run: az login --service-principal -u ${{ secrets.SPN_CLIENT_ID }} -p ${{ secrets.SPN_CLIENT_SECRET }} --tenant ${{ secrets.TENANT_ID }}
+
       - name: 🗝️ Azure Login
         uses: azure/login@v1
         with:
